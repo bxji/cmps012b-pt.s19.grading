@@ -14,7 +14,7 @@ cp *.java Makefile backup   # copy all files of importance into backup
 
 for NUM in $(seq 1 $NUMTESTS); do
     curl $SRCDIR/infile$NUM.txt > infile$NUM.txt
-    curl $SRCDIR/model-outfile$NUM.txt > model-outfile$NUM.txt
+    curl $SRCDIR/model-out$NUM.txt > model-out$NUM.txt
 done
 
 #curl $SRCDIR/ModelSubsetTest.java > ModelSubsetTest.java
