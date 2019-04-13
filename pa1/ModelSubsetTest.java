@@ -160,7 +160,7 @@ class ModelRecursionTest {
         final int maxScore = 30;
         final int charity = 10;
 
-        int totalPoints = (maxScore - test_count * 6) + tests_passed * 15;
+        int totalPoints = (maxScore - test_count * 6) + tests_passed * 6;
         if (test_status == 255) { // your code had an exception
             totalPoints = charity;
         }
