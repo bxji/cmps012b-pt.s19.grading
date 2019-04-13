@@ -1,0 +1,105 @@
+#!/usr/bin/bash
+
+SRCDIR=https://raw.githubusercontent.com/bxji/cmps012b-pt.s19.grading/master/pa1
+NUMTESTS=8
+PNTSPERTEST=5
+let MAXPTS=$NUMTESTS*$PNTSPERTEST
+
+if [ ! -e backup ]; then
+  echo "WARNING: a backup has been created for you in the \"backup\" folder"
+  mkdir backup
+fi
+
+cp *.java Makefile backup   # copy all files of importance into backup
+
+for NUM in $(seq 1 $NUMTESTS); do
+    curl $SRCDIR/infile$NUM.txt > infile$NUM.txt
+    curl $SRCDIR/model-out$NUM.txt > model-out$NUM.txt
+done
+
+#curl $SRCDIR/ModelSubsetTest.java > ModelSubsetTest.java
+
+echo ""
+echo ""
+
+make
+
+if [ ! -e Simulation ] || [ ! -x Simulation ]; then # exist and executable
+  echo ""
+  echo "Makefile doesn't correctly create Executable!!!"
+  echo ""
+  rm -f *.class
+  javac -Xlint *.java
+  echo "Main-class: Subset" > Manifest
+  jar cvfm Subset Manifest *.class
+  rm Manifest
+  chmod +x Subset
+fi
+
+echo ""
+echo ""
+
+testspassed=$(expr 0)
+echo "Please be warned that the following tests discard all output to stdout/stderr"
+echo "Simulation tests: If nothing between '=' signs, then test is passed"
+echo "Press enter to continue"
+read verbose
+for NUM in $(seq 1 $NUMTESTS); do
+  if [ $NUM -eq 11 ]; then
+    # students never cease to disappoint me
+    let testspassed+=1
+    continue
+  fi
+  rm -f out$NUM.txt
+
+  # generous 5 second timeout
+  timeout 5 cat infile$NUM.txt | xargs Subset &> out$NUM.txt >> out$NUM.txt
+  
+  diff -bBwu out$NUM.txt model-out$NUM.txt &> diff$NUM.txt >> diff$NUM.txt
+  
+  echo "Test $NUM:"
+  echo "=========="
+  cat diff$NUM.txt
+  echo "=========="
+
+  if [ -e diff$NUM.txt ] && [[ ! -s diff$NUM.txt ]]; then
+    let testspassed+=1
+  fi
+
+  rm -f infile$NUM.txt out$NUM.txt diff$NUM* model-out$NUM.txt
+
+done
+
+echo ""
+echo ""
+
+let simulationtestpoints=$PNTSPERTEST*$simulationtestspassed
+
+echo "Passed $simulationtestspassed / $NUMTESTS Simulation tests"
+echo "This gives a total of $simulationtestpoints / $MAXPTS points"
+
+echo ""
+echo ""
+
+make clean
+
+if [ -e Subset ] || [ -e *.class ]; then
+  echo "WARNING: Makefile didn't successfully clean all files"
+  rm -f Subset *.class
+fi
+
+echo ""
+echo ""
+
+#echo "Press Enter To Continue with QueueTest Results"
+#read verbose
+
+#javac *.java >> garbage &>> garbage
+#cat garbage
+
+#timeout 5 java ModelQueueTest -v > QueueTest-out.txt &>> QueueTest-out.txt
+#cat QueueTest-out.txt
+
+#rm -f *out.txt
+
+rm -f *.class ModelSubsetTest* garbage*
