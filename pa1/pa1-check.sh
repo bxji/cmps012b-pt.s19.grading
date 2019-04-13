@@ -24,7 +24,7 @@ echo ""
 
 make
 
-if [ ! -e Simulation ] || [ ! -x Simulation ]; then # exist and executable
+if [ ! -e Subset ] || [ ! -x Subset ]; then # exist and executable
   echo ""
   echo "Makefile doesn't correctly create Executable!!!"
   echo ""
@@ -41,7 +41,7 @@ echo ""
 
 testspassed=$(expr 0)
 echo "Please be warned that the following tests discard all output to stdout/stderr"
-echo "Simulation tests: If nothing between '=' signs, then test is passed"
+echo "Subset tests: If nothing between '=' signs, then test is passed"
 echo "Press enter to continue"
 read verbose
 for NUM in $(seq 1 $NUMTESTS); do
@@ -73,10 +73,10 @@ done
 echo ""
 echo ""
 
-let simulationtestpoints=$PNTSPERTEST*$simulationtestspassed
+let testpoints=$PNTSPERTEST*$testspassed
 
-echo "Passed $simulationtestspassed / $NUMTESTS Simulation tests"
-echo "This gives a total of $simulationtestpoints / $MAXPTS points"
+echo "Passed $testspassed / $NUMTESTS Subset tests"
+echo "This gives a total of $testpoints / $MAXPTS points"
 
 echo ""
 echo ""
