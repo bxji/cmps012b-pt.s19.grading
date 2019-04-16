@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
-SRCDIR=https://raw.githubusercontent.com/bxji/cmps012b-pt.s19.grading/master/pa1
+#SRCDIR=https://raw.githubusercontent.com/bxji/cmps012b-pt.s19.grading/master/pa1/
+SRCDIR=/afs/cats.ucsc.edu/users/i/zecheng/cs12b/pa1
+
 NUMTESTS=8
 PNTSPERTEST=5
 let MAXPTS=$NUMTESTS*$PNTSPERTEST
@@ -13,12 +15,15 @@ fi
 cp *.java Makefile backup   # copy all files of importance into backup
 
 for NUM in $(seq 1 $NUMTESTS); do
-    curl $SRCDIR/infile$NUM.txt > infile$NUM.txt
-    curl $SRCDIR/model-out$NUM.txt > model-out$NUM.txt
+    #curl $SRCDIR/infile$NUM.txt > infile$NUM.txt
+    #curl $SRCDIR/model-out$NUM.txt > model-out$NUM.txt
+    cp $SRCDIR/infile$NUM.txt  infile$NUM.txt
+    cp $SRCDIR/model-out$NUM.txt  model-out$NUM.txt
+    cp $SRCDIR/modelunit-out$NUM.txt  modelunit-out$NUM.txt
 done
 
-curl $SRCDIR/ModelSubsetTest.java > ModelSubsetTest.java
-
+#curl $SRCDIR/ModelSubsetTest.java > ModelSubsetTest.java
+cp $SRCDIR/ModelSubsetTest.java  ModelSubsetTest.java
 echo ""
 echo ""
 
@@ -100,6 +105,6 @@ cat garbage
 timeout 5 java ModelSubsetTest -v > SubsetTest-out.txt &>> SubsetTest-out.txt
 cat SubsetTest-out.txt
 
-rm -f *out.txt
+#rm -f *out.txt
 
 rm -f *.class ModelSubsetTest* garbage*
