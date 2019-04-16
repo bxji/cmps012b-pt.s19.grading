@@ -1,1 +1,1 @@
-15-Queens has 2279184 solutions
+12-Queens has 14200 solutions

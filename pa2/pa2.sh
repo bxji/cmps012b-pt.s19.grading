@@ -48,6 +48,7 @@ TEST7="8"
 TEST8="9"
 TEST9="10"
 # Fix n = 15 because they were a pain to grade (~1:30 mins wait)
+# we will see how 5 seconds fair
 TEST10="12"
 
 # Run tests

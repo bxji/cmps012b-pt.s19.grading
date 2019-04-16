@@ -5,7 +5,7 @@ We have made this available to you to check your work before making your final
 submission.
 
 General performance tests 1-8 give your program 0.5 seconds.
-Test 9 give you 2 seconds (because they test 11-Queens). Test 10 gives you 5 seconds (12-Queens).
+Test 9 give you 2 seconds (because they test 10-Queens). Test 10 gives you 5 seconds (12-Queens).
 
 ## Warning
 
