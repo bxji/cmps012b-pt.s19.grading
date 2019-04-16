@@ -1,6 +1,6 @@
 import java.lang.Throwable;
 
-class ModelRecursionTest {
+class ModelSubsetTest {
 
     static int test_count;
 
@@ -26,12 +26,6 @@ class ModelRecursionTest {
     static boolean strcmp(int[] a, String b) { return (Subset.setToString(a)).compareTo(b) == 0; }
 
     public static int runTest(int test) {
-
-        //Subset R = new Subset();
-
-        //int A[] = new int[1000];
-        //int B[] = new int[1000];
-
         try {
             if (test == setToStringEasy_test) {
                 
