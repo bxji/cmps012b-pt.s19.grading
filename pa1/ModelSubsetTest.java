@@ -83,7 +83,7 @@ class ModelSubsetTest {
 
                 b[1999] = 1;
 
-                if (!strcmp(b, "{1998}"))
+                if (!strcmp(b, "{1999}"))
                     return 4;
                 
             } else if (test == printSubsets_test) {
