@@ -91,15 +91,15 @@ fi
 echo ""
 echo ""
 
-#echo "Press Enter To Continue with QueueTest Results"
-#read verbose
+echo "Press Enter To Continue with SubsetTest Results"
+read verbose
 
-#javac *.java >> garbage &>> garbage
-#cat garbage
+javac *.java >> garbage &>> garbage
+cat garbage
 
-#timeout 5 java ModelQueueTest -v > QueueTest-out.txt &>> QueueTest-out.txt
-#cat QueueTest-out.txt
+timeout 5 java ModelSubsetTest -v > SubsetTest-out.txt &>> SubsetTest-out.txt
+cat SubsetTest-out.txt
 
-#rm -f *out.txt
+rm -f *out.txt
 
 rm -f *.class ModelSubsetTest* garbage*
