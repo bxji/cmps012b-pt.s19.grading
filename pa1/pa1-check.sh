@@ -17,7 +17,7 @@ for NUM in $(seq 1 $NUMTESTS); do
     curl $SRCDIR/model-out$NUM.txt > model-out$NUM.txt
 done
 
-#curl $SRCDIR/ModelSubsetTest.java > ModelSubsetTest.java
+curl $SRCDIR/ModelSubsetTest.java > ModelSubsetTest.java
 
 echo ""
 echo ""
