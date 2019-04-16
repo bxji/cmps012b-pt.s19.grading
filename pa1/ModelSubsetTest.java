@@ -30,9 +30,9 @@ class ModelSubsetTest {
         try {
             if (test == setToStringEasy_test) {
                 
-                int a[] = { 0, 0, 0, 0 };
-                int b[] = { 1, 1, 1, 1 };
-                int c[] = { 1, 0, 1, 0 };
+                int a[] = { 0, 0, 0, 0, 0 };
+                int b[] = { 0, 1, 1, 1, 1 };
+                int c[] = { 1, 1, 0, 1, 0 };
                 
                 if (!strcmp(a, "{}"))
                     return 1;
@@ -44,8 +44,8 @@ class ModelSubsetTest {
                     
             } else if (test == setToStringMedium_test) {
 
-                int a[] = { 1, 0, 1, 0, 1, 0, 1, 0, 1 };
-                int b[] = { 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1 };
+                int a[] = { 0xDADB0D, 1, 0, 1, 0, 1, 0, 1, 0, 1 };
+                int b[] = { 0xA1A1A1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1 };
                 // arrays are initialized to 0.
                 int c[] = new int[1000];
                 
@@ -59,9 +59,9 @@ class ModelSubsetTest {
             } else if (test == setToStringHard_test) {
                 // not actually hard. there's nothing to test...
 
-                int a[] = { 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 };
-                int b[] = { 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 };
-                int c[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+                int a[] = { -1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 };
+                int b[] = { -1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 };
+                int c[] = { -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 
                 if (!strcmp(a, "{1, 3, 5, 7, 9, 11, 13, 15, 17, 19}"))
                     return 1;
