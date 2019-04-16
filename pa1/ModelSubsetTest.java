@@ -72,7 +72,7 @@ class ModelSubsetTest {
             } else if (test == setToStringEdge_test) {
                 int a[] = new int[0];
                 int b[] = new int[2000];
-                int c[] = { 1, 0 };
+                int c[] = { 0, 1 };
                 
                 if (!strcmp(a, "{}"))
                     return 1;
