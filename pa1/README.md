@@ -11,7 +11,7 @@ chmod +x pa1.sh
 ./pa1.sh
 ```
 
-Currently, files in this branch works on local computer, I changed very curl command to cp.
+Currently, files in this branch works on local computer, I changed curl command to cp.
 
 In local computer, change the script path to your local pa1 path in pa1.sh and pa1-check.sh
 
