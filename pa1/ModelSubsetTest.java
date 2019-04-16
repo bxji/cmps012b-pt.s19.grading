@@ -1,4 +1,5 @@
 import java.lang.Throwable;
+import java.lang.Integer;
 
 class ModelSubsetTest {
 
@@ -70,7 +71,7 @@ class ModelSubsetTest {
                     return 3;
             } else if (test == setToStringEdge_test) {
                 int a[] = new int[0];
-                int b[] = new int[Integer.MAX_SIZE];
+                int b[] = new int[Integer.MAX_VALUE];
                 int c[] = { 1, 0 };
                 
                 if (!strcmp(a, "{}"))
@@ -80,7 +81,7 @@ class ModelSubsetTest {
                 if (!strcmp(c, "{1}"))
                     return 3;
 
-                b[Integer.MAX_SIZE - 1] = 1;
+                b[Integer.MAX_VALUE - 1] = 1;
 
                 if (!strcmp(b, "{2147483646}"))
                     return 4;
