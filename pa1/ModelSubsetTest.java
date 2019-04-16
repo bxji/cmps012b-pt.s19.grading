@@ -71,7 +71,7 @@ class ModelSubsetTest {
                     return 3;
             } else if (test == setToStringEdge_test) {
                 int a[] = new int[0];
-                int b[] = new int[Integer.MAX_VALUE];
+                int b[] = new int[2000];
                 int c[] = { 1, 0 };
                 
                 if (!strcmp(a, "{}"))
@@ -81,9 +81,9 @@ class ModelSubsetTest {
                 if (!strcmp(c, "{1}"))
                     return 3;
 
-                b[Integer.MAX_VALUE - 1] = 1;
+                b[1999] = 1;
 
-                if (!strcmp(b, "{2147483646}"))
+                if (!strcmp(b, "{1998}"))
                     return 4;
                 
             } else if (test == printSubsets_test) {
