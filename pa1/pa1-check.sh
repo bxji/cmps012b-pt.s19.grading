@@ -54,8 +54,8 @@ for NUM in $(seq 1 $NUMTESTS); do
 
   # generous 5 second timeout
   timeout 5 cat infile$NUM.txt | xargs Subset &> out$NUM.txt >> out$NUM.txt
-  
-  diff -bBwu out$NUM.txt model-out$NUM.txt &> diff$NUM.txt >> diff$NUM.txt
+
+  diff -ywBZbi --suppress-common-lines out$NUM.txt model-out$NUM.txt &> diff$NUM.txt >> diff$NUM.txt
   
   echo "Test $NUM:"
   echo "=========="
