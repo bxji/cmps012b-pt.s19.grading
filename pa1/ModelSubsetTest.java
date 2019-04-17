@@ -75,14 +75,13 @@ class ModelSubsetTest {
                 int b[] = new int[2000];
                 int c[] = { 0, 1 };
                 
-                if (!strcmp(a, "{}") ||
+                if (!strcmp(a, "{}") &&
                     !strcmp(a, "{ }"))
                     return 1;
-                if (!strcmp(b, "{}") ||
-                    !strcmp(a, "{ }"))
+                if (!strcmp(b, "{}") &&
+                    !strcmp(b, "{ }"))
                     return 2;
-                if (!strcmp(c, "{1}") ||
-                    !strcmp(a, "{ }"))
+                if (!strcmp(c, "{1}")
                     return 3;
 
                 b[1999] = 1;
