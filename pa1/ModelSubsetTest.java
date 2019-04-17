@@ -34,7 +34,8 @@ class ModelSubsetTest {
                 int b[] = { 0, 1, 1, 1, 1 };
                 int c[] = { 1, 1, 0, 1, 0 };
                 
-                if (!strcmp(a, "{}"))
+                if (!strcmp(a, "{}") ||
+                    !strcmp(a, "{ }"))
                     return 1;
                 if (!strcmp(b, "{1, 2, 3, 4}"))
                     return 2;
@@ -70,15 +71,18 @@ class ModelSubsetTest {
                 if (!strcmp(c, "{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19}"))
                     return 3;
             } else if (test == setToStringEdge_test) {
-                int a[] = new int[0];
+                int a[] = new int[1];
                 int b[] = new int[2000];
                 int c[] = { 0, 1 };
                 
-                if (!strcmp(a, "{}"))
+                if (!strcmp(a, "{}") ||
+                    !strcmp(a, "{ }"))
                     return 1;
-                if (!strcmp(b, "{}"))
+                if (!strcmp(b, "{}") ||
+                    !strcmp(a, "{ }"))
                     return 2;
-                if (!strcmp(c, "{1}"))
+                if (!strcmp(c, "{1}") ||
+                    !strcmp(a, "{ }"))
                     return 3;
 
                 b[1999] = 1;
