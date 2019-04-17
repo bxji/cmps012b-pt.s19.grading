@@ -34,7 +34,7 @@ class ModelSubsetTest {
                 int b[] = { 0, 1, 1, 1, 1 };
                 int c[] = { 1, 1, 0, 1, 0 };
                 
-                if (!strcmp(a, "{}") ||
+                if (!strcmp(a, "{}") &&
                     !strcmp(a, "{ }"))
                     return 1;
                 if (!strcmp(b, "{1, 2, 3, 4}"))
