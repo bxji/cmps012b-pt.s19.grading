@@ -81,7 +81,7 @@ class ModelSubsetTest {
                 if (!strcmp(b, "{}") &&
                     !strcmp(b, "{ }"))
                     return 2;
-                if (!strcmp(c, "{1}")
+                if (!strcmp(c, "{1}"))
                     return 3;
 
                 b[1999] = 1;
