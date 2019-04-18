@@ -189,103 +189,6 @@ class ModelSubsetTest {
 
     }
 
-    /*
-
-    public static int runTest_middleStaus(int test) {
-        try {
-            int B[] = new int[5];
-            int B1[] = new int[6];
-            int test_status = -1;
-            if (test == setToStringEasy_test) {
-                PrintStream o = new PrintStream(new File("unit-out1.txt"));
-                // PrintStream console = System.out;
-                System.setOut(o);
-                // test1
-                B[1] = 1;
-                Subset.printSubsets(B, 1, 2);
-                o.close();
-                System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
-                // if (!strcmp(a, "{}"))
-                // return 1;
-                // if (!strcmp(b, "{1, 2, 3, 4}"))
-                // return 2;
-                // if (!strcmp(c, "{1, 3}"))
-                // return 3;
-                test_status = CheckResult("modelunit-out1.txt", "unit-out1.txt");
-
-            } else if (test == setToStringMedium_test) {
-
-                PrintStream o1 = new PrintStream(new File("unit-out2.txt"));
-                // PrintStream console = System.out;
-                System.setOut(o1);
-                B[1] = 1;
-
-                Subset.printSubsets(B, 1, 4);
-                o1.close();
-                System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
-                test_status = CheckResult("modelunit-out2.txt", "unit-out2.txt");
-
-            } else if (test == setToStringHard_test) {
-                // not actually hard. there's nothing to test...
-                PrintStream o3 = new PrintStream(new File("unit-out3.txt"));
-                // PrintStream console = System.out;
-                System.setOut(o3);
-                B[1] = 1;
-                B[3] = 1;
-                Subset.printSubsets(B, 0, 4);
-                o3.close();
-                System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
-                test_status = CheckResult("modelunit-out3.txt", "unit-out3.txt");
-
-            } else if (test == setToStringEdge_test) {
-                B1[1] = 1;
-                B1[3] = 1;
-
-                // test4 base case print nothing
-
-                PrintStream o4 = new PrintStream(new File("unit-out4.txt"));
-                // PrintStream console = System.out;
-                System.setOut(o4);
-                B1[1] = 1;
-                B1[3] = 1;
-                Subset.printSubsets(B1, 1, 6);
-                o4.close();
-                System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
-                test_status = CheckResult("modelunit-out4.txt", "unit-out4.txt");
-
-            } else if (test == printSubsets_test) {
-                PrintStream o5 = new PrintStream(new File("unit-out5.txt"));
-                // PrintStream console = System.out;
-                System.setOut(o5);
-                B1[1] = 1;
-                B1[3] = 1;
-                Subset.printSubsets(B1, 1, 5);
-                o5.close();
-                System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
-                test_status = CheckResult("modelunit-out5.txt", "unit-out5.txt");
-
-            }
-            return test_status;
-        } catch (Exception e) {
-            if (verbose) {
-                System.out.println(
-                        "\nUnfortunately your program crashed on test " + testName(test) + " With an exception of:\n");
-                e.printStackTrace();
-                System.out.println();
-            }
-            return 255;
-        } catch (StackOverflowError s) {
-            if (verbose) {
-                System.out.println("\nUnfortunately your program crashed on test " + testName(test)
-                        + " With a stack overflow error\n");
-            }
-            return 255;
-        }
-
-    }
-
-    */
-
     public static void main(String args[]) {
 
         if (args.length > 1 || (args.length == 1 && !args[0].equals("-v"))) {
@@ -311,7 +214,6 @@ class ModelSubsetTest {
             System.out.println("\nList of tests passed/failed:\n");
         for (int i = 0; i < test_count; i++) {
             test_status = runTest(i);
-            //test_status = runTest_middleStaus(i);
             if (verbose)
                 System.out.printf("%s %s", testName(i), test_status == 0 ? "PASSED" : "FAILED");
             if (test_status == 0) {
