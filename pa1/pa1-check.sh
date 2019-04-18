@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
-SRCDIR=https://raw.githubusercontent.com/bxji/cmps012b-pt.s19.grading/master/pa1
+SRCDIR=https://raw.githubusercontent.com/bxji/cmps012b-pt.s19.grading/master/pa1/
+
 NUMTESTS=8
 PNTSPERTEST=5
 let MAXPTS=$NUMTESTS*$PNTSPERTEST
@@ -15,10 +16,10 @@ cp *.java Makefile backup   # copy all files of importance into backup
 for NUM in $(seq 1 $NUMTESTS); do
     curl $SRCDIR/infile$NUM.txt > infile$NUM.txt
     curl $SRCDIR/model-out$NUM.txt > model-out$NUM.txt
+    curl $SRCDIR/modelunit-out$NUM.txt  modelunit-out$NUM.txt
 done
 
 curl $SRCDIR/ModelSubsetTest.java > ModelSubsetTest.java
-
 echo ""
 echo ""
 
@@ -45,11 +46,7 @@ echo "Subset tests: If nothing between '=' signs, then test is passed"
 echo "Press enter to continue"
 read verbose
 for NUM in $(seq 1 $NUMTESTS); do
-  if [ $NUM -eq 11 ]; then
-    # students never cease to disappoint me
-    let testspassed+=1
-    continue
-  fi
+
   rm -f out$NUM.txt
 
   # generous 5 second timeout
