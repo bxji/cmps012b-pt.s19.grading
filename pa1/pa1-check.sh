@@ -97,6 +97,6 @@ cat garbage
 timeout 5 java ModelSubsetTest -v > SubsetTest-out.txt &>> SubsetTest-out.txt
 cat SubsetTest-out.txt
 
-rm -f *out.txt
+rm -f *out[0-9].txt
 
 rm -f *.class ModelSubsetTest* garbage*
