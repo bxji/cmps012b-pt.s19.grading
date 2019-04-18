@@ -49,7 +49,8 @@ class ModelSubsetTest {
                 int e[] = new int[2000];
                 int f[] = { 0, 1 };
 
-                if (!strcmp(a, "{}"))
+                if (!strcmp(a, "{}") &&
+                    !strcmp(a, "{ }"))
                     return 1;
                 if (!strcmp(b, "{1, 2, 3}"))
                     return 2;
