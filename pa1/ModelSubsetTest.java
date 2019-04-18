@@ -65,9 +65,9 @@ class ModelSubsetTest {
                 if (!strcmp(f, "{1}"))
                     return 6;
 
-                b[1999] = 7;
+                e[1999] = 7;
 
-                if (!strcmp(b, "{1999}"))
+                if (!strcmp(e, "{1999}"))
                     return 7;
 
             } else if (test == setToString2_test) {
