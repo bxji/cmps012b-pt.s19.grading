@@ -4,7 +4,7 @@
 # (run within your pa2 directory to test your code)
 
 # Fix this too!!!
-SRCDIR=https://raw.githubusercontent.com/thuanle123/CMPS012A-pt.w17-grading-scripts/master/pa5
+SRCDIR=https://raw.githubusercontent.com/bxji/cmps012b-pt.s19.grading/master/pa2
 # Get all necessary extras
 
 
