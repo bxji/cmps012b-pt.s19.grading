@@ -1,0 +1,1 @@
+5-Queens has 10 solutions

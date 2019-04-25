@@ -1,0 +1,1 @@
+9-Queens has 352 solutions
