@@ -58,13 +58,25 @@ TEST9="10"
 TEST10="12"
 
 # Run tests
-echo "If nothing between '=' signs, then test is passed::"
+NUMTESTS=10
+PNTSPERTEST=5
+let MAXPTS=$NUMTESTS*$PNTSPERTEST
+testspassed=$(expr 0)
+echo "Please be warned that the following tests discard all output to stdout/stderr"
+echo "Subset tests: If nothing between '=' signs, then test is passed"
+echo "Press enter to continue"
+read verbose
+
 echo "Test 1:"
 echo "=========="
 timeout 0.5 Queens $TEST1 >& out1.txt
 diff -bBwu out1.txt model-out1.txt > diff1.txt
 cat diff1.txt
 echo "=========="
+
+if [ -e diff1.txt ] && [[ ! -s diff1.txt ]]; then
+    let testspassed+=1
+fi
 
 echo "Test 2:"
 echo "=========="
@@ -73,12 +85,20 @@ diff -bBwu out2.txt model-out2.txt > diff2.txt
 cat diff2.txt
 echo "=========="
 
+if [ -e diff2.txt ] && [[ ! -s diff2.txt ]]; then
+    let testspassed+=1
+fi
+
 echo "Test 3:"
 echo "=========="
 timeout 0.5 Queens $TEST3 >& out3.txt
 diff -bBwu out3.txt model-out3.txt > diff3.txt
 cat diff3.txt
 echo "=========="
+
+if [ -e diff3.txt ] && [[ ! -s diff3.txt ]]; then
+    let testspassed+=1
+fi
 
 echo "Test 4:"
 echo "=========="
@@ -87,12 +107,20 @@ diff -bBwu out4.txt model-out4.txt > diff4.txt
 cat diff4.txt
 echo "=========="
 
+if [ -e diff4.txt ] && [[ ! -s diff4.txt ]]; then
+    let testspassed+=1
+fi
+
 echo "Test 5:"
 echo "=========="
 timeout 0.5 Queens $TEST5 > out5.txt
 diff -bBwu out5.txt model-out5.txt > diff5.txt
 cat diff5.txt
 echo "=========="
+
+if [ -e diff5.txt ] && [[ ! -s diff5.txt ]]; then
+    let testspassed+=1
+fi
 
 echo "Test 6:"
 echo "=========="
@@ -101,12 +129,20 @@ diff -bBwu out6.txt model-out6.txt > diff6.txt
 cat diff6.txt
 echo "=========="
 
+if [ -e diff6.txt ] && [[ ! -s diff6.txt ]]; then
+    let testspassed+=1
+fi
+
 echo "Test 7:"
 echo "=========="
 timeout 0.5 Queens $TEST7 > out7.txt
 diff -bBwu out7.txt model-out7.txt > diff7.txt
 cat diff7.txt
 echo "=========="
+
+if [ -e diff7.txt ] && [[ ! -s diff7.txt ]]; then
+    let testspassed+=1
+fi
 
 echo "Test 8:"
 echo "=========="
@@ -115,12 +151,20 @@ diff -bBwu out8.txt model-out8.txt > diff8.txt
 cat diff8.txt
 echo "=========="
 
+if [ -e diff8.txt ] && [[ ! -s diff8.txt ]]; then
+    let testspassed+=1
+fi
+
 echo "Test 9:"
 echo "=========="
 timeout 2 Queens $TEST9 > out9.txt
 diff -bBwu out9.txt model-out9.txt > diff9.txt
 cat diff9.txt
 echo "=========="
+
+if [ -e diff9.txt ] && [[ ! -s diff9.txt ]]; then
+    let testspassed+=1
+fi
 
 echo "Test 10:"
 echo "=========="
@@ -130,10 +174,22 @@ diff -bBwu out10.txt model-out10.txt > diff10.txt
 cat diff10.txt
 echo "=========="
 
-
-make clean
+if [ -e diff10.txt ] && [[ ! -s diff10.txt ]]; then
+    let testspassed+=1
+fi
 
 echo ""
+echo ""
+
+let testpoints=$PNTSPERTEST*$testspassed
+
+echo "Passed $testspassed / $NUMTESTS Subset tests"
+echo "This gives a total of $testpoints / $MAXPTS points"
+
+echo ""
+echo ""
+
+make clean
 
 if [ -e Queens ] || [ -e *.class ]; then
    echo "WARNING: Makefile didn't successfully clean all files"
