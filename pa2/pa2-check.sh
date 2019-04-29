@@ -3,7 +3,7 @@
 # usage: pa2.sh
 # (run within your pa2 directory to test your code)
 
-SRCDIR=https://raw.githubusercontent.com/bxji/cmps012b-pt.s19.grading/tree/master/pa2/
+SRCDIR=https://raw.githubusercontent.com/bxji/cmps012b-pt.s19.grading/master/pa2/
 
 if [ ! -e backup ]; then
   echo "WARNING: a backup has been created for you in the \"backup\" folder"
