@@ -19,7 +19,7 @@ class ModelQueensTest {
 
         if (test == printBoard_test)
             return "printBoard_test";
-        if (test == planeQueen_test)
+        if (test == placeQueen_test)
             return "placeQueen_test";
         if (test == removeQueen_test)
             return "removeQueen_test";
@@ -31,9 +31,9 @@ class ModelQueensTest {
         return "";
     }
 
-    static boolean strcmp(int[] a, String b) {
-        return (Queens.setToString(a)).compareTo(b) == 0;
-    }
+    // static boolean strcmp(int[] a, String b) {
+    //     return (Queens.setToString(a)).compareTo(b) == 0;
+    // }
 
     static String printArray(int [][]B) {
         String result="{";
@@ -55,8 +55,6 @@ class ModelQueensTest {
     }
 
     public static int runTest(int test) {
-        int B[] = new int[5];
-        int B1[] = new int[6];
 
         try {
             if (test == printBoard_test) {
