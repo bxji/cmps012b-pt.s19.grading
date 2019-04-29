@@ -71,7 +71,7 @@ class ModelQueensTest {
                 o1.close();
                 System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
                 //check if outputs are the same
-                test_status = compareFiles("modelunit-out1.txt", "unit-out1.txt");
+                test_status = CheckResult("modelunit-out1.txt", "unit-out1.txt");
                 return test_status;
 
             } else if (test == placeQueen_test) {
@@ -80,14 +80,18 @@ class ModelQueensTest {
                 int test_status = -1;
                 int  B2[][]= {{0,0,0,0,0},{2,0,1,0,0},{4,-1,-1,-1,1},{0,0,-1,-1,-2},{0,0,-2,0,-1}};
                 
-                PrintStream o2 = new PrintStream(new File("unit-out2-1.txt")); 
+                PrintStream o2 = new PrintStream(new File("unit-out2.txt")); 
                 System.setOut(o2);
                 Queens.placeQueen(B2,3,1);   
                 System.out.println(printArray(B2));
                 o2.close();
                 System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
 
-                test_status = compareFiles("modelunit-out2-1.txt", "unit-out2-1.txt");
+                test_status = CheckResult("modelunit-out2-1.txt", "unit-out2.txt");
+                if (test_status == 1) {
+                    test_status = CheckResult("modelunit-out2-2.txt", "unit-out2.txt");
+                } 
+
                 return test_status;
 
             } else if (test == removeQueen_test) {
@@ -102,7 +106,7 @@ class ModelQueensTest {
                 o3.close();
                 System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
 
-                test_status = compareFiles("modelunit-out3.txt", "unit-out3.txt");
+                test_status = CheckResult("modelunit-out3.txt", "unit-out3.txt");
                 return test_status;
 
             } else if (test == findSolution_test) {
@@ -117,7 +121,7 @@ class ModelQueensTest {
                 o4.close();
                 System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
 
-                test_status = compareFiles("modelunit-out4.txt", "unit-out4.txt");
+                test_status = CheckResult("modelunit-out4.txt", "unit-out4.txt");
                 return test_status;
 
             } else if (test == baseCase_test) {
@@ -131,7 +135,7 @@ class ModelQueensTest {
                 o5.close(); 
                 System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
 
-                test_status = compareFiles("modelunit-out5.txt", "unit-out5.txt");
+                test_status = CheckResult("modelunit-out5.txt", "unit-out5.txt");
                 return test_status;
             }
         } catch (Exception e) {

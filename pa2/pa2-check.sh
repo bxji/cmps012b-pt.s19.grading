@@ -18,6 +18,14 @@ do
 done
 
 curl $SRCDIR/ModelQueensTest.java > ModelQueensTest.java
+
+curl $SRCDIR/modelunit-out1.txt > modelunit-out1.txt
+curl $SRCDIR/modelunit-out2-1.txt > modelunit-out2-1.txt
+curl $SRCDIR/modelunit-out2-2.txt > modelunit-out2-2.txt
+curl $SRCDIR/modelunit-out3.txt > modelunit-out3.txt
+curl $SRCDIR/modelunit-out4.txt > modelunit-out4.txt
+curl $SRCDIR/modelunit-out5.txt > modelunit-out5.txt
+
 echo ""
 echo ""
 
