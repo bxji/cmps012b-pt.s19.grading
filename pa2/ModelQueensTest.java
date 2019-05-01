@@ -193,7 +193,7 @@ class ModelQueensTest {
                 return 1;
             } else {
                 return 0;
-            }
+            
         } catch (FileNotFoundException e) {
             return 255;
         }
