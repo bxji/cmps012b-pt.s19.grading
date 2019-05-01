@@ -166,8 +166,8 @@ class ModelQueensTest {
                 lineA = file1.nextLine();
             if(file2.hasNextLine())
                 lineB = file2.nextLine();
-        System.out.println("lineA: " + lineA);
-        System.out.println("lineB: " + lineB);
+        // System.out.println("lineA: " + lineA);
+        // System.out.println("lineB: " + lineB);
             lineA = lineA.replace(" ","");
             lineB = lineB.replace(" ","");
             if (!lineA.equals(lineB)) {
@@ -190,7 +190,7 @@ class ModelQueensTest {
         File f2 = new File(b);
         String comparison = compareFiles(new Scanner(f1), new Scanner(f2));
         if (!comparison.equals("")) {
-                //System.out.println(comparison);
+                System.out.println(comparison);
                 return 1;
             } else {
                 return 0;
