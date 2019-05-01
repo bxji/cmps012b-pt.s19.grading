@@ -184,16 +184,20 @@ class ModelQueensTest {
         }
         return comparison; 
     }
-    public static void CheckResult() throws FileNotFoundException {
-        File f1 = new File("Modelunit-out4.txt");
-        File f2 = new File("unit-out4.txt");
+    public static int CheckResult(String a, String b) throws FileNotFoundException {
+        File f1 = new File(a);
+        File f2 = new File(b);
         String comparison = compareFiles(new Scanner(f1), new Scanner(f2));
-        if(!comparison.equals("")){
-            System.out.println("Files content are not equal.");
-            System.out.println(comparison);
-        }else{
-            System.out.println("Files content are equal.");
+        if (!comparison.equals("")) {
+                //System.out.println(comparison);
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (FileNotFoundException e) {
+            return 255;
         }
+
     }
 
     public static void main(String args[]) {
