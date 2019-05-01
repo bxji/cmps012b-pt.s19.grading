@@ -185,6 +185,7 @@ class ModelQueensTest {
         return comparison; 
     }
     public static int CheckResult(String a, String b) throws FileNotFoundException {
+        try {
         File f1 = new File(a);
         File f2 = new File(b);
         String comparison = compareFiles(new Scanner(f1), new Scanner(f2));
@@ -193,7 +194,7 @@ class ModelQueensTest {
                 return 1;
             } else {
                 return 0;
-            
+            } 
         } catch (FileNotFoundException e) {
             return 255;
         }
