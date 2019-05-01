@@ -154,45 +154,46 @@ class ModelQueensTest {
         return 0;
     }
 
-    public static String compareFiles(Scanner file1, Scanner file2) {
-        String lineA;
-        String lineB;
+    public static String compareFiles (Scanner file1, Scanner file2) {
+        String lineA ;
+        String lineB ;
         int x = 1;
         String comparison = "";
         while (file1.hasNextLine() || file2.hasNextLine()) {
-            lineA = "";
-            lineB = "";
-            if (file1.hasNextLine())
+            lineA ="";
+            lineB ="";
+            if(file1.hasNextLine())
                 lineA = file1.nextLine();
-            if (file2.hasNextLine())
+            if(file2.hasNextLine())
                 lineB = file2.nextLine();
-            lineA = lineA.trim();
-            lineB = lineB.trim();
+        System.out.println("lineA: " + lineA);
+        System.out.println("lineB: " + lineB);
+            lineA = lineA.replace(" ","");
+            lineB = lineB.replace(" ","");
             if (!lineA.equals(lineB)) {
-                comparison += "Line " + x;
+                
+                comparison+= "Line " + x;
                 x++;
-                comparison += "< " + lineA;
-                comparison += "> " + lineB + "\n";
+                comparison+= "< " + lineA;
+                comparison+= "> " + lineB + "\n";
+                //System.out.println("Line " + x++);
+                //System.out.println("< " + lineA);
+                //System.out.println("> " + lineB + "\n");
+                
             }
         }
-        return comparison;
+        return comparison; 
     }
-
-    public static int CheckResult(String file1, String file2) {
-        try {
-            File f1 = new File(file1);
-            File f2 = new File(file2);
-            String comparison = compareFiles(new Scanner(f1), new Scanner(f2));
-            if (!comparison.equals("")) {
-                //System.out.println(comparison);
-                return 1;
-            } else {
-                return 0;
-            }
-        } catch (FileNotFoundException e) {
-            return 255;
+    public static void CheckResult() throws FileNotFoundException {
+        File f1 = new File("Modelunit-out4.txt");
+        File f2 = new File("unit-out4.txt");
+        String comparison = compareFiles(new Scanner(f1), new Scanner(f2));
+        if(!comparison.equals("")){
+            System.out.println("Files content are not equal.");
+            System.out.println(comparison);
+        }else{
+            System.out.println("Files content are equal.");
         }
-
     }
 
     public static void main(String args[]) {
