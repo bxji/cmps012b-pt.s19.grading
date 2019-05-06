@@ -1,0 +1,9 @@
+Report file: infile3.txt.rpt
+5 Jobs:
+(1, 5, *) (1, 6, *) (2, 4, *) (3, 5, *) (4, 1, *) 
+
+***********************************************************
+1 processor: totalWait=45, maxWait=17, averageWait=9.00
+2 processors: totalWait=14, maxWait=6, averageWait=2.80
+3 processors: totalWait=6, maxWait=3, averageWait=1.20
+4 processors: totalWait=2, maxWait=2, averageWait=0.40

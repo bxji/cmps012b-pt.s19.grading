@@ -1,0 +1,8 @@
+Report file: infile7.txt.rpt
+4 Jobs:
+(1, 1, *) (10, 10, *) (100, 100, *) (1000, 1000, *) 
+
+***********************************************************
+1 processor: totalWait=0, maxWait=0, averageWait=0.00
+2 processors: totalWait=0, maxWait=0, averageWait=0.00
+3 processors: totalWait=0, maxWait=0, averageWait=0.00
