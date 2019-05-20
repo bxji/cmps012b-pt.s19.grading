@@ -8,7 +8,7 @@ Run the following in your working directory (the directory you wrote your code
 in) to get the test script and example input files:
 
 ```bash
-curl https://raw.githubusercontent.com/bxji/cmps012b-pt.s19.grading/master/pa2/pa4.sh > pa4.sh
+curl https://raw.githubusercontent.com/bxji/cmps012b-pt.s19.grading/master/pa4/pa4.sh > pa4.sh
 chmod +x pa4.sh
 ```
 ## Usage
