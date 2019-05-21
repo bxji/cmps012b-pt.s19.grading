@@ -52,7 +52,7 @@ for NUM in $(seq 1 $NUMTESTS); do
     continue
   fi
   rm -f outfile$NUM.txt
-  timeout 5 Simulation infile$NUM.txt &> garbage >> garbage
+  timeout 7 Simulation infile$NUM.txt &> garbage >> garbage
   diff -ywBZbi --suppress-common-lines infile$NUM.txt.rpt model-rpt$NUM.txt &> diff-rpt$NUM.txt >> diff-rpt$NUM.txt
   diff -ywBZbi --suppress-common-lines infile$NUM.txt.trc model-trc$NUM.txt &> diff-trc$NUM.txt >> diff-trc$NUM.txt
   echo "Report $NUM Test:"
