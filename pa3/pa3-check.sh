@@ -44,7 +44,7 @@ cat garbage
 echo ""
 echo ""
 
-timeout 30 java ModelDictionaryTest -v > DictionaryTest-out.txt &>> DictionaryTest-out.txt
+timeout 45 java ModelDictionaryTest -v > DictionaryTest-out.txt &>> DictionaryTest-out.txt
 cat DictionaryTest-out.txt
 
 echo ""
