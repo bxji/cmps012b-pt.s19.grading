@@ -1,6 +1,6 @@
 # cmps012b-pt.s18/pa5
 
-The following is a set of performance tests to run on your Simulation program.
+The following is a set of performance tests to run on your Dictionary ADT.
 
 ## Installation
 
