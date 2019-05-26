@@ -1,4 +1,4 @@
-# cmps012b-pt.s18/pa5
+# cmps012b-pt.s19/pa5
 
 The following is a set of performance tests to run on your Dictionary ADT.
 
