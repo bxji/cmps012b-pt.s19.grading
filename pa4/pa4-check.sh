@@ -70,7 +70,7 @@ for NUM in $(seq 1 $NUMTESTS); do
     let simulationtestspassed+=1
   fi
 
-  #rm -f infile$NUM.txt *.rpt *.trc diff*$NUM* model-rpt$NUM.txt model-trc$NUM.txt
+  rm -f infile$NUM.txt *.rpt *.trc diff*$NUM* model-rpt$NUM.txt model-trc$NUM.txt
 done
 
 echo ""
@@ -103,6 +103,6 @@ cat garbage
 timeout 5 java ModelQueueTest -v > QueueTest-out.txt &>> QueueTest-out.txt
 cat QueueTest-out.txt
 
-#rm -f *out.txt
+rm -f *out.txt
 
 rm -f *.class ModelQueueTest* garbage*
